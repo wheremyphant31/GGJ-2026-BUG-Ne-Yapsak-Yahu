@@ -26,7 +26,14 @@ public class grap_SC : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Pickable"))
                 {
-                    degisken.pickedObj = hit.collider.transform;
+                    // Objeyi kopyala (orijinalini yerinden alma)
+                    GameObject clone = Instantiate(
+                        hit.collider.gameObject,
+                        hit.collider.transform.position,
+                        hit.collider.transform.rotation
+                    );
+
+                    degisken.pickedObj = clone.transform;
                     degisken.pickedObj.SetParent(player);
                     isMoving = true;
                 }

@@ -7,12 +7,15 @@ public class Right_SC : MonoBehaviour
     public Degisken_SC degisken;
     public GameObject player;   // Ana player referansı
     public Button myButton;     // UI Button referansı
-    public float rotationSpeed = 4f; // Hız ayarı (Inspector’dan değiştirilebilir)
+    public float rotationSpeed; // Hız ayarı (Inspector’dan değiştirilebilir)
 
     private Quaternion targetRotation; // Hedef rotasyon
 
     void Start()
     {
+        //hızı değişkenden çekme
+        rotationSpeed = degisken.donus_hiz;
+
         // Başlangıçta mevcut rotasyonu hedef olarak ayarla
         targetRotation = player.transform.rotation;
 
@@ -42,7 +45,7 @@ public class Right_SC : MonoBehaviour
 
     void AddYRotationSmooth()
     {
-        if (!degisken.rotating_&&!degisken.rotating)
+        if (!degisken.rotating_&&!degisken.rotating && !degisken.rotating_MM)
         {
             // Mevcut rotasyonu al
             Vector3 currentRotation = player.transform.eulerAngles;

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Boiler
+  - Trash
   layers:
   - Default
   - TransparentFX
